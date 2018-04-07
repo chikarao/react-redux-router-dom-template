@@ -37,7 +37,7 @@ export function signinUser({ email, password }, callback) {
           // take out error if hard coding error messages
           // if request is bad
           // show error to user
-          console.log('we are in .catch');
+          console.log('we are in signin .catch');
           dispatch(authError(error.response.data.data.messages));
           // dispatch(authError('Bad login info...'));
         });
