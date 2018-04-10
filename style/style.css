@@ -1,0 +1,22 @@
+/* HEADER */
+
+/* take out border lines for the header box */
+.navbar-default {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+/* change text color of brand */
+.navbar-default .navbar-brand {
+  color: black;
+}
+
+/* take out border line of expanded header */
+.navbar-default .navbar-collapse {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.navbar-nav > li:first-child > a:first-child {
+  display: none;
+}

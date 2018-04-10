@@ -9,7 +9,9 @@ import App from './components/app';
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
 
+
 const token = localStorage.getItem('token');
+const email = localStorage.getItem('email');
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
@@ -17,7 +19,7 @@ const store = createStoreWithMiddleware(reducers);
 if (token) {
   // we need to update application state
   // dispatch is s method of store!!!
-  store.dispatch({ type: AUTH_USER });
+  store.dispatch({ type: AUTH_USER, payload: email });
 }
 
 ReactDOM.render(

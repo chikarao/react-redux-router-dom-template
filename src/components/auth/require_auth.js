@@ -38,7 +38,7 @@ export default function (AuthRequiredComponent) {
     }
   }
   function mapStateToProps(state) {
-  return { authenticated: state.auth.authenticated };
+  return { authenticated: state.auth.authenticated, email: state.auth.email };
   // find out if currently logged in
   //*************state.auth.authenticated change from HOC lesson
   }

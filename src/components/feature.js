@@ -8,7 +8,7 @@ class Feature extends Component {
   }
   render() {
     // return <div>{this.props.message}</div>;
-    return <div>"Welcome to the features. "</div>;
+    return <div>Welcome to /features</div>;
   }
 }
 

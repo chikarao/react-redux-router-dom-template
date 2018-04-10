@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router-dom';
+// import { browserHistory } from 'react-router-dom';
 import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE } from './types';
 
 // const ROOT_URL = 'http://localhost:3090';
@@ -14,7 +14,7 @@ export function signinUser({ email, password }, callback) {
     // redux thunk let's us call dispatch method; returns action
     // submit email/password to the server
     // same as { email: email, password: password}
-    console.log({ sign_in: { email, password } });
+    // console.log({ sign_in: { email, password } });
     axios.post(`${ROOT_URL}/api/v1//sign_in`, { sign_in: { email, password } })
     // axios.post(`${ROOT_URL}/sign_in`, { email, password })
     //signin for express server
@@ -22,12 +22,13 @@ export function signinUser({ email, password }, callback) {
         console.log(response);
         // request is good
         // Update state to indicate user is authenticated
-        dispatch({ type: AUTH_USER });
+        dispatch({ type: AUTH_USER, payload: email });
         // save JWT token
         // localStorage.setItem('token', response.data.token);
         // data.token for express server api
         //redirect to the route '/feature'
         localStorage.setItem('token', response.data.data.user.authentication_token);
+        localStorage.setItem('email', email);
         // authentication_token for rails book review api
         // browserHistory.push('/feature');
         callback();
@@ -78,6 +79,7 @@ export function signoutUser() {
   //flip authenticated to false
   // delete token from local storage
   localStorage.removeItem('token');
+  localStorage.removeItem('email');
   return { type: UNAUTH_USER };
 }
 
