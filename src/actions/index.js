@@ -52,17 +52,19 @@ export function signupUser({ email, password }, callback) {
     // signup for express server; sign_up for rails book review api
     .then(response => {
       console.log('here is the response: ', response);
-      dispatch({ type: AUTH_USER });
+      dispatch({ type: AUTH_USER, payload: email });
       console.log('here is the response: ', response.data.data.user.authentication_token);
       localStorage.setItem('token', response.data.data.user.authentication_token);
       // localStorage.setItem('token', response.data.token);
+      localStorage.setItem('email', email);
+
       // browserHistory.push('/feature'); deprecated in router-dom v4
       callback();
       // callback for this.props.history.push('/feature') from signup.js
     }).catch(error => {
-      // console.log('error.response:', error.response.data.error);
+      console.log('error.response:', error);
       dispatch(authError(error.response.data.data.messages));
-      // dispatch(authError(error.response.data.error));
+      // dispatch(authError(error));
     });
     // .catch(response => dispatch(console.log(response.data)));
   };

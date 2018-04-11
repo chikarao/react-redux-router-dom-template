@@ -3,6 +3,12 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
 class Signin extends Component {
+  componentWillMount() {
+    if (this.props.authenticated) {
+      this.props.history.push('/feature');
+    }
+   }
+
   handleFormSubmit({ email, password }) {
     console.log(email, password);
     this.props.signinUser({ email, password }, () => this.props.history.push('/feature'));
@@ -39,7 +45,9 @@ class Signin extends Component {
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error };
+  return {
+    errorMessage: state.auth.error,
+    authenticated: state.auth.authenticated };
 }
 
 export default reduxForm({

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
 class Header extends Component {
+// **********THIS PART IS EXPERIMENTAL CODE ***********
   constructor() {
        super();
        this.state = {
@@ -28,6 +29,8 @@ class Header extends Component {
        this.setState({ screenIsbig: true });
      }
    }
+   // **********THIS PART IS EXPERIMENTAL CODE ***********
+
   renderLinks() {
     if (this.props.authenticated) {
       // show link to signout
@@ -55,7 +58,7 @@ class Header extends Component {
       <NavItem key={3} eventKey={3} href="#">
         <Link className="nav-link" to="/signin">Sign in</Link>
       </NavItem>,
-      <NavItem key={4} eventKey={4} href="#">
+      <NavItem className="sign-up-nav-item" key={4} eventKey={4} href="#">
         <Link className="nav-link" to="/signup">Sign Up</Link>
       </NavItem>
           //
@@ -128,37 +131,10 @@ class Header extends Component {
 //   // let renderThis;
 //   if (this.state.screenIsbig) {
 //       console.log('this is the screensize: ', window.innerWidth);
-//       return (
-//
-//         <nav className="navbar navbar-light">
-//           <Link to="/" className="navbar-brand"> Redux Auth <br/>
-//           <small>w/ react-router-dom</small></Link>
-//           <ul className="nav navbar-nav">
-//             {this.renderLinks()}
-//           </ul>
-//         </nav>
 //         // renderThis = <h1>This is for big screens</h1>
-//       );
 //   } else {
 //     // console.log('this is the screensize: ', window.innerWidth);
-//     return (
-//           // <Navbar inverse collapseOnSelect>
-//           <Navbar className="header-navbar">
-//             <Navbar.Header>
-//                 <Navbar.Brand>
-//                   <Link to="/" className="navbar-brand"> Redux Auth <br />
-//                    <small>w/ react-router-dom</small></Link>
-//                 </Navbar.Brand>
-//             <Navbar.Toggle />
-//             </Navbar.Header>
-//             <Navbar.Collapse>
 //
-//               <Nav pullRight>
-//                 {this.renderLinks()}
-//               </Nav>
-//             </Navbar.Collapse>
-//       </Navbar>
-//     );
 //       // renderThis = <h3>This is for small screens</h3>
 //   }
 //   // return (

@@ -21,7 +21,27 @@
 .navbar-nav > li:first-child > a:first-child {
   display: none;
 }
+
 .navbar-nav > li > a {
   height: 60px;
   font-size: 17px;
+}
+
+.sign-up-nav-item > a:first-child {
+  display: none;
+}
+
+/* forms */
+
+.form-control {
+  width: 90%;
+}
+
+@media screen and (min-width: 500px) {
+    /* body {
+        background-color: lightgreen;
+    } */
+    .form-control {
+      width: 500px;
+    }
 }
